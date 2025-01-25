@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from therapy.forms import UserCreationForm
 
+
 def index(request):
     form = UserCreationForm
-    context= {
+    context = {
         'title': 'Therapy Club',
         'form': form
 

@@ -13,16 +13,14 @@ from ckeditor.widgets import CKEditorWidget
 from captcha.fields import CaptchaField
 from pilkit.processors import ResizeToFill, ResizeToCover
 
-
 User = get_user_model()
 
-class UserCreationForm(forms.ModelForm):
 
-
+class UserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ("username", "email", "password","role", "phone_number", "with_child", "sex", "birthday", "note")
+        fields = ("username", "email", "phone_number", "sex", "birthday")
         widgets = {
-            'sex': forms.RadioSelect
+            'sex': forms.RadioSelect,
+            'birthday': forms.DateInput(attrs={'type': 'date'}),
         }
-        
